@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sólane Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            overflow-x: hidden;
+        }
+        .top-bar-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        .top-bar {
+            width: 100%;
+            background-color: #333;
+            color: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .left-icons, .menu-icon {
+            display: flex;
+            align-items: center;
+        }
+        .left-icons {
+            margin-left: 5px;
+        }
+        .icon {
+            font-size: 16px;
+            color: #f9f9f9;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .logo {
+            font-size: 30px;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: #f9f9f9;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .center-title {
+            background-image: url('./IMG_5564.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #f9f9f9;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .slogan {
+            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #f9f9f9;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        .search-bar {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 20px;
+            width: 250px;
+            padding: 5px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        .menu-icon {
+            width: 35px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .menu-icon div {
+            width: 100%;
+            height: 4px;
+            background-color: #f9f9f9;
+            border-radius: 2px;
+        }
+        .side-menu {
+            height: 100vh;
+            width: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .side-menu a {
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #f9f9f9;
+            transition: background-color 0.3s;
+        }
+        .side-menu a:hover {
+            background-color: #444;
+            border-radius: 8px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            color: #f9f9f9;
+            cursor: pointer;
+            background: none;
+            border: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar-container">
+        <div class="top-bar">
+            <div class="left-icons">
+                <span class="icon" onclick="toggleSearchBar()">Search</span>
+                <span class="icon" onclick="goToBag()">Bag</span>
+            </div>
+            <div class="logo">Sólane Jewelry</div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="searchBar" class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search for products..." onkeydown="handleEnter(event)">
+    </div>
+
+    <div class="center-title">
+        Sólane Jewelry
+        <div class="slogan">Shine in Your Own Light</div>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <button class="close-btn" onclick="closeMenu()">X</button>
+        <a href="aboutus.html" id="aboutUs">About Us</a>
+        <a href="rings.html" id="rings">Rings</a>
+        <a href="earrings.html" id="earrings">Earrings</a>
+        <a href="bracelets.html" id="bracelets">Bracelets</a>
+        <a href="necklaces.html" id="necklaces">Necklaces</a>
+        <a href="contactus.html" id="contactUs">Contact Us</a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const sideMenu = document.getElementById("sideMenu");
+            sideMenu.style.width = sideMenu.style.width === "200px" ? "0" : "200px";
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.width = "0";
+        }
+
+        function toggleSearchBar() {
+            const searchBar = document.getElementById("searchBar");
+            searchBar.style.display = searchBar.style.display === "flex" ? "none" : "flex";
+        }
+
+        function goToBag() {
+            window.location.href = "shopping-bag.html";
+        }
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                searchProducts();
+            }
+        }
+
+        function searchProducts() {
+            const query = document.getElementById("searchInput").value.toLowerCase();
+            if (query) {
+                window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+            } else {
+                alert("Please enter a search term.");
+            }
+        }
+    </script>
+
+</body>
+</html>

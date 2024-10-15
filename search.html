@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Sólane Jewelry</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .product-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .no-results {
+            font-size: 18px;
+            color: #444;
+            text-align: center;
+            margin-top: 40px;
+            line-height: 1.6;
+        }
+        .no-results strong {
+            color: #333;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Search Results</h1>
+<div id="results"></div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('query').toLowerCase();
+
+    const products = [
+        { name: "Gold Ring", image: "./images/ring1.jpg", category: "Rings", price: "€120" },
+        { name: "Silver Ring", image: "./images/ring2.jpg", category: "Rings", price: "€90" },
+        { name: "Gold Stud Earrings", image: "./images/earring1.jpg", category: "Earrings", price: "€70" },
+        { name: "Silver Hoop Earrings", image: "./images/earring2.jpg", category: "Earrings", price: "€85" },
+        { name: "Gold Chain Bracelet", image: "./images/bracelet1.jpg", category: "Bracelets", price: "€130" },
+        { name: "Silver Charm Bracelet", image: "./images/bracelet2.jpg", category: "Bracelets", price: "€110" },
+        { name: "Gold Pendant Necklace", image: "./images/necklace1.jpg", category: "Necklaces", price: "€140" },
+        { name: "Pearl Strand Necklace", image: "./images/necklace2.jpg", category: "Necklaces", price: "€200" }
+    ];
+
+    const results = products.filter(product => product.name.toLowerCase().includes(query));
+    
+    const resultsContainer = document.getElementById('results');
+    
+    if (results.length > 0) {
+        results.forEach(product => {
+            const productItem = document.createElement('div');
+            productItem.classList.add('product-item');
+            productItem.innerHTML = `
+                <img src="${product.image}" alt="${product.name}">
+                <h3>${product.name}</h3>
+                <p>${product.category}</p>
+                <p>${product.price}</p>
+            `;
+            resultsContainer.appendChild(productItem);
+        });
+    } else {
+        resultsContainer.innerHTML = `
+            <div class="no-results">
+                <strong>We're sorry!</strong><br>
+                No products matched your search for "<em>${query}</em>".<br>
+                Please try searching with different terms or explore our full collection to find something special.
+            </div>`;
+    }
+</script>
+
+</body>
+</html>

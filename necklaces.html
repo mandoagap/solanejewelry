@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Necklaces Collection - Sólane Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        /* Στυλ για το κουμπί Main Page */
+        .breadcrumb {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 14px;
+            font-weight: normal;
+        }
+        .breadcrumb a {
+            text-decoration: none;
+            color: #555;
+            padding: 5px 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #333;
+        }
+        .collection-container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-family: 'Playfair Display', serif;
+        }
+        .collection-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #555;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .product-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .product-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        .product-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        .product-price {
+            font-size: 20px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        .product-description {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <a href="index.html">Main page</a>
+    </nav>
+<div class="collection-container">
+    <div class="collection-title">Necklaces Collection</div>
+
+    <!-- Προϊόν 1 -->
+    <div class="product-item">
+        <img src="./images/necklace1.jpg" alt="Gold Pendant Necklace">
+        <div class="product-name">Gold Pendant Necklace</div>
+        <div class="product-price">€140</div>
+        <div class="product-description">Elegant gold pendant necklace with a minimalist charm.</div>
+    </div>
+
+    <!-- Προϊόν 2 -->
+    <div class="product-item">
+        <img src="./images/necklace2.jpg" alt="Pearl Strand Necklace">
+        <div class="product-name">Pearl Strand Necklace</div>
+        <div class="product-price">€200</div>
+        <div class="product-description">Classic strand of pearls for timeless elegance.</div>
+    </div>
+
+    <!-- Προϊόν 3 -->
+    <div class="product-item">
+        <img src="./images/necklace3.jpg" alt="Silver Locket Necklace">
+        <div class="product-name">Silver Locket Necklace</div>
+        <div class="product-price">€120</div>
+        <div class="product-description">Silver locket necklace to keep precious memories close.</div>
+    </div>
+
+    <!-- Προϊόν 4 -->
+    <div class="product-item">
+        <img src="./images/necklace4.jpg" alt="Gemstone Choker Necklace">
+        <div class="product-name">Gemstone Choker Necklace</div>
+        <div class="product-price">€95</div>
+        <div class="product-description">A colorful choker with natural gemstones for a unique look.</div>
+    </div>
+</div>
+
+</body>
+</html>
