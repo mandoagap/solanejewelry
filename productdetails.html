@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f4f4f4;
+            color: #222;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product-container {
+            max-width: 700px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        .cart-count {
+            background-color: #222;
+            color: #fff;
+            border-radius: 50%;
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+        .product-name {
+            font-size: 28px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 10px;
+        }
+        .product-price {
+            font-size: 22px;
+            color: #444;
+            margin-bottom: 25px;
+        }
+        .product-description {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .info-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+        .info-card h2 {
+            font-size: 18px;
+            color: #222;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .info-card p {
+            font-size: 16px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .button {
+            padding: 12px 25px;
+            font-size: 14px;
+            cursor: pointer;
+            border: 1px solid #222;
+            background-color: #fff;
+            color: #222;
+            border-radius: 6px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .button:hover {
+            background-color: #222;
+            color: #fff;
+        }
+    </style>
+    <script>
+        // Μεταβλητή για τον μετρητή καλαθιού
+        let cartCount = 0;
+
+        function loadProductDetails() {
+            const params = new URLSearchParams(window.location.search);
+            const productId = params.get("id");
+
+            let productDetails;
+            switch (productId) {
+                // Rings
+                case "1":
+                    productDetails = {
+                        name: "Elegant Gold Ring",
+                        price: "€120",
+                        description: "A timeless piece crafted from pure gold, perfect for any occasion.",
+                        image: "./images/ring1.jpg",
+                        materials: "18K Gold",
+                        dimensions: "Width: 3mm, Weight: 5g",
+                        availability: "In Stock",
+                        reviews: "This ring is absolutely stunning and perfect for formal events."
+                    };
+                    break;
+                case "2":
+                    productDetails = {
+                        name: "Silver Band Ring",
+                        price: "€90",
+                        description: "Elegant and simple silver band, designed for everyday wear.",
+                        image: "./images/ring2.jpg",
+                        materials: "Sterling Silver",
+                        dimensions: "Width: 4mm, Weight: 6g",
+                        availability: "In Stock",
+                        reviews: "I wear this ring daily and it complements any outfit."
+                    };
+                    break;
+                // Add more cases for each product here...
+                default:
+                    productDetails = {
+                        name: "Unknown Product",
+                        price: "N/A",
+                        description: "Product details not available.",
+                        image: "./images/placeholder.jpg",
+                        materials: "N/A",
+                        dimensions: "N/A",
+                        availability: "N/A",
+                        reviews: "No reviews available."
+                    };
+            }
+
+            document.getElementById("product-name").textContent = productDetails.name;
+            document.getElementById("product-price").textContent = productDetails.price;
+            document.getElementById("product-description").textContent = productDetails.description;
+            document.getElementById("product-image").src = productDetails.image;
+            document.getElementById("product-materials").textContent = productDetails.materials;
+            document.getElementById("product-dimensions").textContent = productDetails.dimensions;
+            document.getElementById("product-availability").textContent = productDetails.availability;
+            document.getElementById("user-reviews").textContent = productDetails.reviews;
+        }
+
+        function addToCart() {
+            cartCount++;
+            document.getElementById("cart-count").textContent = cartCount;
+            alert("Product added to cart!");
+        }
+
+        function addToFavorites() {
+            alert("Product added to favorites!");
+        }
+    </script>
+</head>
+<body onload="loadProductDetails()">
+    <div class="product-container">
+        <!-- Εικονίδιο Καλαθιού -->
+        <div class="cart-icon">
+            🛒 <span id="cart-count" class="cart-count">0</span>
+        </div>
+        
+        <h1 id="product-name" class="product-name">Product Name</h1>
+        <img id="product-image" src="" alt="Product Image" class="product-image">
+        <p id="product-price" class="product-price">Price</p>
+        <p id="product-description" class="product-description">Description</p>
+
+        <!-- Κουτάκια Πληροφοριών -->
+        <div class="info-card">
+            <h2>Materials</h2>
+            <p id="product-materials">-</p>
+        </div>
+
+        <div class="info-card">
+            <h2>Dimensions</h2>
+            <p id="product-dimensions">-</p>
+        </div>
+
+        <div class="info-card">
+            <h2>Availability</h2>
+            <p id="product-availability">-</p>
+        </div>
+
+        <div class="info-card">
+            <h2>User Reviews</h2>
+            <p id="user-reviews">-</p>
+        </div>
+
+        <!-- Κουμπιά -->
+        <div class="button-container">
+            <button class="button" onclick="addToCart()">Add to Cart</button>
+            <button class="button" onclick="addToFavorites()">Add to Favorites</button>
+        </div>
+    </div>
+</body>
+</html>
