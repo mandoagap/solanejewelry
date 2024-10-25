@@ -154,6 +154,8 @@
             <div class="left-icons">
                 <span class="icon" onclick="toggleSearchBar()">Search</span>
                 <span class="icon" onclick="goToBag()">Bag</span>
+                <!-- Προσθήκη κουμπιού "Favorites" -->
+                <span class="icon" onclick="goToFavorites()">Favorites</span>
             </div>
             <div class="logo">Sólane Jewelry</div>
             <div class="menu-icon" onclick="toggleMenu()">
@@ -200,6 +202,10 @@
 
         function goToBag() {
             window.location.href = "shopping-bag.html";
+        }
+
+        function goToFavorites() {
+            window.location.href = "favorites.html";
         }
 
         function handleEnter(event) {
